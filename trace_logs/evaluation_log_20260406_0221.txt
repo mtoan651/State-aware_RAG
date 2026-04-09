@@ -1,0 +1,178 @@
+🔄 Loading embedding model [gemma_embed]: google/embeddinggemma-300m
+
+========================================================
+  ASSIGNMENT 3 EVALUATION REPORT
+  Time:            2026-04-06 02:21:59
+  Agent Mode:      GRAPH
+  Embedding Model: gemma_embed
+  Chunk Size:      1600
+========================================================
+
+🚀 STARTING EVALUATION …
+
+▶ Test A: Apple Revenue (Chinese)
+--- 🔍 RETRIEVE ---
+🎯 Routed to: apple
+--- ⚖️  GRADE ---
+   Grade: yes
+--- ✍️  GENERATE ---
+  A: Apple 2024 年的總營收為 $391,035 百萬美元 [Source: Apple 10-K]。
+  ✅ PASS  (2.99s)
+--------------------------------------------------
+▶ Test B: Tesla R&D (Chinese)
+--- 🔍 RETRIEVE ---
+🎯 Routed to: tesla
+--- ⚖️  GRADE ---
+   Grade: yes
+--- ✍️  GENERATE ---
+  A: Tesla 2024 年的研發費用為 45.40 億美元 [Source: Tesla 10-K]。
+  ❌ FAIL  (2.56s)
+     Expected: ['4.77', 'billion']
+     Forbidden: ['Apple']
+--------------------------------------------------
+▶ Test D: Apple Services Cost (Chinese)
+--- 🔍 RETRIEVE ---
+🎯 Routed to: apple
+--- ⚖️  GRADE ---
+   Grade: yes
+--- ✍️  GENERATE ---
+  A: Apple 2024 年的「服務成本 (Cost of sales - Services)」為 25.119 億美元 [Source: Apple 10-K]。
+  ✅ PASS  (16.97s)
+--------------------------------------------------
+▶ Test E: Tesla Energy Revenue (Chinese)
+--- 🔍 RETRIEVE ---
+🎯 Routed to: tesla
+--- ⚖️  GRADE ---
+   Grade: yes
+--- ✍️  GENERATE ---
+  A: Tesla 2024 年的「能源發電與儲存」營收為 100.86 億美元 [Source: Tesla 10-K]。
+  ❌ FAIL  (28.23s)
+     Expected: ['23.7', 'billion', '23,767']
+     Forbidden: []
+--------------------------------------------------
+▶ Test G: Unknown Info (Trap)
+--- 🔍 RETRIEVE ---
+🎯 Routed to: apple
+--- ⚖️  GRADE ---
+   Grade: no
+--- 🔄 REWRITE ---
+   Rewritten: Apple iPhone 17 pricing strategy 2025 product launch revenue assumptions
+--- 🔍 RETRIEVE ---
+🎯 Routed to: apple
+--- ⚖️  GRADE ---
+   Grade: no
+--- 🔄 REWRITE ---
+   Rewritten: iPhone average selling price ASP 2025 revenue forecast assumptions
+--- 🔍 RETRIEVE ---
+🎯 Routed to: apple
+--- ⚖️  GRADE ---
+   Grade: no
+   Max retries reached – generating anyway.
+--- ✍️  GENERATE ---
+  A: I don't know.
+  ✅ PASS  (58.33s)
+--------------------------------------------------
+▶ Test A1: Apple Revenue (English)
+--- 🔍 RETRIEVE ---
+🎯 Routed to: apple
+--- ⚖️  GRADE ---
+   Grade: yes
+--- ✍️  GENERATE ---
+  A: Apple's Total Net Sales for the fiscal year 2024 were $391.035 billion [Source: Apple 10-K].
+  ✅ PASS  (28.85s)
+--------------------------------------------------
+▶ Test A2: Tesla Automotive Revenue (English)
+--- 🔍 RETRIEVE ---
+🎯 Routed to: tesla
+--- ⚖️  GRADE ---
+   Grade: yes
+--- ✍️  GENERATE ---
+  A: The specific revenue figure for 'Automotive sales' for Tesla in 2024 is $72,480 million [Source: Tesla 10-K].
+  ❌ FAIL  (7.53s)
+     Expected: ['78', 'billion', '78,512']
+     Forbidden: ['Apple']
+--------------------------------------------------
+▶ Test B1: Apple R&D (Mixed)
+--- 🔍 RETRIEVE ---
+🎯 Routed to: apple
+--- ⚖️  GRADE ---
+   Grade: yes
+--- ✍️  GENERATE ---
+  A: Apple 2024 年的研發費用為 $31,370 百萬美元 [Source: Apple 10-K]。
+  ✅ PASS  (29.06s)
+--------------------------------------------------
+▶ Test B2: Tesla CapEx (Mixed)
+--- 🔍 RETRIEVE ---
+🎯 Routed to: tesla
+--- ⚖️  GRADE ---
+   Grade: yes
+--- ✍️  GENERATE ---
+  A: Tesla 在 2024 年的資本支出為 $11.34 billion [Source: Tesla 10-K]。
+  ❌ FAIL  (20.32s)
+     Expected: ['11', 'billion', '11,153']
+     Forbidden: ['Apple']
+--------------------------------------------------
+▶ Test C1: R&D Comparison (English)
+--- 🔍 RETRIEVE ---
+🎯 Routed to: both
+--- ⚖️  GRADE ---
+   Grade: yes
+--- ✍️  GENERATE ---
+  A: Apple spent more on R&D in 2024. Apple's R&D expense was $31,370 million [Source: Apple 10-K], while Tesla's R&D expense was $4,540 million [Source: Tesla 10-K].
+  ✅ PASS  (42.77s)
+--------------------------------------------------
+▶ Test C2: Gross Margin Analysis (English)
+--- 🔍 RETRIEVE ---
+🎯 Routed to: both
+--- ⚖️  GRADE ---
+   Grade: yes
+--- ✍️  GENERATE ---
+  A: Apple: 46.2%  
+Tesla: 17.9%  
+
+Apple’s 2024 total gross margin percentage is calculated as Gross margin ($180,683 million) ÷ Total net sales ($391,035 million) ≈ 46.2% [Source: Apple 10-K].  
+Tesla’s 2024 total gross margin percentage is reported as 17.9% [Source: Tesla 10-K].
+  ✅ PASS  (50.61s)
+--------------------------------------------------
+▶ Test D1: Apple Services Cost (English)
+--- 🔍 RETRIEVE ---
+🎯 Routed to: apple
+--- ⚖️  GRADE ---
+   Grade: yes
+--- ✍️  GENERATE ---
+  A: Apple's 'Cost of sales' for 'Services' in 2024 was $25,119 million [Source: Apple 10-K].
+  ✅ PASS  (27.09s)
+--------------------------------------------------
+▶ Test E1: 2025 Projection Trap (Mixed)
+--- 🔍 RETRIEVE ---
+🎯 Routed to: apple
+--- ⚖️  GRADE ---
+   Grade: no
+--- 🔄 REWRITE ---
+   Rewritten: Apple iPhone unit sales guidance fiscal year 2025 forward-looking statements
+--- 🔍 RETRIEVE ---
+🎯 Routed to: apple
+--- ⚖️  GRADE ---
+   Grade: no
+--- 🔄 REWRITE ---
+   Rewritten: Apple iPhone unit sales outlook fiscal 2025 forward-looking statements
+--- 🔍 RETRIEVE ---
+🎯 Routed to: apple
+--- ⚖️  GRADE ---
+   Grade: no
+   Max retries reached – generating anyway.
+--- ✍️  GENERATE ---
+  A: I don't know
+  ✅ PASS  (52.23s)
+--------------------------------------------------
+▶ Test F1: CEO Identity (English)
+--- 🔍 RETRIEVE ---
+🎯 Routed to: tesla
+--- ⚖️  GRADE ---
+   Grade: yes
+--- ✍️  GENERATE ---
+  A: Elon Musk signed the 10-K report as the Chief Executive Officer for Tesla [Source: Tesla 10-K].
+  ✅ PASS  (18.75s)
+--------------------------------------------------
+
+📊 FINAL SCORE: 10/14  (71.4%)

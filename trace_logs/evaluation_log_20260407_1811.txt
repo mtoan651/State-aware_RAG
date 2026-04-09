@@ -1,0 +1,218 @@
+
+========================================================
+  ASSIGNMENT 3 EVALUATION REPORT
+  Time:            2026-04-07 18:11:10
+  Agent Mode:      GRAPH
+  Embedding Model: minilm
+  Chunk Size:      2000
+========================================================
+
+🚀 STARTING EVALUATION …
+
+▶ Test A: Apple Revenue (Chinese)
+--- 🔍 RETRIEVE ---
+🎯 Routed to: apple
+🔄 Loading re-ranker: cross-encoder/ms-marco-MiniLM-L-6-v2
+   [Reranker] scores: [1.738, -0.794, -1.815, -4.202, -7.225]
+   [Apple] Retrieved 5 chunks:
+--- ⚖️  GRADE ---
+   Grade: yes
+--- ✍️  GENERATE ---
+  A: Apple 2024 年的總營收為 $391,035 百萬美元 [Source: Apple 10-K]。
+  ✅ PASS  (5.70s)
+--------------------------------------------------
+▶ Test B: Tesla R&D (Chinese)
+--- 🔍 RETRIEVE ---
+🎯 Routed to: tesla
+   [Reranker] scores: [1.594, 1.006, 0.39, -4.767, -5.905]
+   [Tesla] Retrieved 5 chunks:
+--- ⚖️  GRADE ---
+   Grade: yes
+--- ✍️  GENERATE ---
+  A: Tesla 2024 年的研發費用為 $4,540 百萬美元 [Source: Tesla 10-K]。
+  ❌ FAIL  (2.65s)
+     Expected: ['4.77', 'billion']
+     Forbidden: ['Apple']
+--------------------------------------------------
+▶ Test D: Apple Services Cost (Chinese)
+--- 🔍 RETRIEVE ---
+🎯 Routed to: apple
+   [Reranker] scores: [0.018, -3.643, -4.287, -6.078, -8.101]
+   [Apple] Retrieved 5 chunks:
+--- ⚖️  GRADE ---
+   Grade: yes
+--- ✍️  GENERATE ---
+  A: Apple 2024 年的「服務成本 (Cost of sales - Services)」為 25,119 百萬美元 [Source: Apple 10-K]。
+  ✅ PASS  (2.44s)
+--------------------------------------------------
+▶ Test E: Tesla Energy Revenue (Chinese)
+--- 🔍 RETRIEVE ---
+🎯 Routed to: tesla
+   [Reranker] scores: [1.306, -0.662, -0.735, -1.16, -1.523]
+   [Tesla] Retrieved 5 chunks:
+--- ⚖️  GRADE ---
+   Grade: yes
+--- ✍️  GENERATE ---
+  A: Tesla 2024 年的「能源發電與儲存 (Energy generation and storage)」營收為 $10,086 百萬美元 [Source: Tesla 10-K]。
+  ❌ FAIL  (2.53s)
+     Expected: ['23.7', 'billion', '23,767']
+     Forbidden: []
+--------------------------------------------------
+▶ Test G: Unknown Info (Trap)
+--- 🔍 RETRIEVE ---
+🎯 Routed to: apple
+   [Reranker] scores: [-2.41, -2.458, -2.559, -3.811, -7.04]
+   [Apple] Retrieved 5 chunks:
+--- ⚖️  GRADE ---
+   Grade: no
+--- 🔄 REWRITE ---
+   Rewritten: Apple iPhone 17 expected average selling price ASP 2025 outlook
+--- 🔍 RETRIEVE ---
+🎯 Routed to: apple
+   [Reranker] scores: [-1.526, -4.241, -4.254, -6.355, -11.017]
+   [Apple] Retrieved 5 chunks:
+--- ⚖️  GRADE ---
+   Grade: no
+--- 🔄 REWRITE ---
+   Rewritten: Apple iPhone average selling price ASP 2025 guidance
+--- 🔍 RETRIEVE ---
+🎯 Routed to: apple
+   [Reranker] scores: [-0.531, -2.908, -3.09, -4.91, -10.865]
+   [Apple] Retrieved 5 chunks:
+--- ⚖️  GRADE ---
+   Grade: no
+   Max retries reached – generating anyway.
+--- ✍️  GENERATE ---
+  A: I don't know.
+  ✅ PASS  (10.23s)
+--------------------------------------------------
+▶ Test A1: Apple Revenue (English)
+--- 🔍 RETRIEVE ---
+🎯 Routed to: apple
+   [Reranker] scores: [4.862, 1.555, 1.219, -1.105, -5.964]
+   [Apple] Retrieved 5 chunks:
+--- ⚖️  GRADE ---
+   Grade: yes
+--- ✍️  GENERATE ---
+  A: Apple's Total Net Sales for the fiscal year 2024 were $391,035 million [Source: Apple 10-K].
+  ✅ PASS  (2.24s)
+--------------------------------------------------
+▶ Test A2: Tesla Automotive Revenue (English)
+--- 🔍 RETRIEVE ---
+🎯 Routed to: tesla
+   [Reranker] scores: [5.841, 2.76, 0.004, -0.164, -2.38]
+   [Tesla] Retrieved 5 chunks:
+--- ⚖️  GRADE ---
+   Grade: yes
+--- ✍️  GENERATE ---
+  A: The specific revenue figure for 'Automotive sales' for Tesla in 2024 is $72,480 million [Source: Tesla 10-K].
+  ❌ FAIL  (9.62s)
+     Expected: ['78', 'billion', '78,512']
+     Forbidden: ['Apple']
+--------------------------------------------------
+▶ Test B1: Apple R&D (Mixed)
+--- 🔍 RETRIEVE ---
+🎯 Routed to: apple
+   [Reranker] scores: [-0.413, -2.05, -2.699, -4.789, -8.345]
+   [Apple] Retrieved 5 chunks:
+--- ⚖️  GRADE ---
+   Grade: yes
+--- ✍️  GENERATE ---
+  A: Apple 2024 年的研發費用為 $31,370 百萬美元 [Source: Apple 10-K]。
+  ✅ PASS  (16.47s)
+--------------------------------------------------
+▶ Test B2: Tesla CapEx (Mixed)
+--- 🔍 RETRIEVE ---
+🎯 Routed to: tesla
+   [Reranker] scores: [-0.711, -1.118, -1.127, -1.296, -1.714]
+   [Tesla] Retrieved 5 chunks:
+--- ⚖️  GRADE ---
+   Grade: yes
+--- ✍️  GENERATE ---
+  A: Tesla 在 2024 年的資本支出為 $11,339 百萬美元 [Source: Tesla 10-K]。
+  ❌ FAIL  (15.89s)
+     Expected: ['11', 'billion', '11,153']
+     Forbidden: ['Apple']
+--------------------------------------------------
+▶ Test C1: R&D Comparison (English)
+--- 🔍 RETRIEVE ---
+🎯 Routed to: both
+   [Reranker] scores: [-1.524, -2.438, -3.906, -4.832, -8.48]
+   [Apple] Retrieved 5 chunks:
+   [Reranker] scores: [-3.324, -4.97, -5.462, -7.115, -7.678]
+   [Tesla] Retrieved 5 chunks:
+--- ⚖️  GRADE ---
+   Grade: yes
+--- ✍️  GENERATE ---
+  A: I don't know. The provided context does not include Tesla's R&D expenses for 2024.
+  ❌ FAIL  (39.80s)
+     Expected: ['Apple', 'Apple spent more']
+     Forbidden: []
+--------------------------------------------------
+▶ Test C2: Gross Margin Analysis (English)
+--- 🔍 RETRIEVE ---
+🎯 Routed to: both
+   [Reranker] scores: [-1.063, -3.218, -4.143, -5.125, -8.242]
+   [Apple] Retrieved 5 chunks:
+   [Reranker] scores: [0.872, -1.643, -3.017, -4.242, -6.551]
+   [Tesla] Retrieved 5 chunks:
+--- ⚖️  GRADE ---
+   Grade: yes
+--- ✍️  GENERATE ---
+  A: I don't know. The provided context does not contain Tesla's total gross margin percentage for 2024, only the gross margin percentage for its energy generation and storage segment (26.2%). Without Tesla's overall gross margin percentage, I cannot compare it to Apple's.
+  ❌ FAIL  (23.21s)
+     Expected: ['Apple', 'Tesla', '46', '18', 'Apple']
+     Forbidden: []
+--------------------------------------------------
+▶ Test D1: Apple Services Cost (English)
+--- 🔍 RETRIEVE ---
+🎯 Routed to: apple
+   [Reranker] scores: [6.929, 3.095, -0.564, -0.881, -6.991]
+   [Apple] Retrieved 5 chunks:
+--- ⚖️  GRADE ---
+   Grade: yes
+--- ✍️  GENERATE ---
+  A: Apple's 'Cost of sales' for 'Services' in 2024 was $25,119 million [Source: Apple 10-K].
+  ✅ PASS  (3.36s)
+--------------------------------------------------
+▶ Test E1: 2025 Projection Trap (Mixed)
+--- 🔍 RETRIEVE ---
+🎯 Routed to: apple
+   [Reranker] scores: [-3.632, -3.827, -3.901, -5.351, -7.889]
+   [Apple] Retrieved 5 chunks:
+--- ⚖️  GRADE ---
+   Grade: no
+--- 🔄 REWRITE ---
+   Rewritten: Apple iPhone unit sales guidance fiscal year 2025 forward-looking statements
+--- 🔍 RETRIEVE ---
+🎯 Routed to: apple
+   [Reranker] scores: [0.372, -1.997, -4.296, -4.348, -10.502]
+   [Apple] Retrieved 5 chunks:
+--- ⚖️  GRADE ---
+   Grade: no
+--- 🔄 REWRITE ---
+   Rewritten: Apple iPhone unit sales outlook fiscal year 2025 forward-looking statements
+--- 🔍 RETRIEVE ---
+🎯 Routed to: apple
+   [Reranker] scores: [0.193, -2.287, -4.499, -5.024, -10.683]
+   [Apple] Retrieved 5 chunks:
+--- ⚖️  GRADE ---
+   Grade: no
+   Max retries reached – generating anyway.
+--- ✍️  GENERATE ---
+  A: I don't know.
+  ✅ PASS  (5.63s)
+--------------------------------------------------
+▶ Test F1: CEO Identity (English)
+--- 🔍 RETRIEVE ---
+🎯 Routed to: tesla
+   [Reranker] scores: [4.897, 4.214, -1.93, -4.373, -5.171]
+   [Tesla] Retrieved 5 chunks:
+--- ⚖️  GRADE ---
+   Grade: yes
+--- ✍️  GENERATE ---
+  A: Elon Musk signed the 10-K report as the Chief Executive Officer for Tesla [Source: Tesla 10-K].
+  ✅ PASS  (11.02s)
+--------------------------------------------------
+
+📊 FINAL SCORE: 8/14  (57.1%)
